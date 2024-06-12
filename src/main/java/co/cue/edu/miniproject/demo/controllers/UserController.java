@@ -1,10 +1,8 @@
 package co.cue.edu.miniproject.demo.controllers;
 
 import co.cue.edu.miniproject.demo.dtos.UserDTO;
-import co.cue.edu.miniproject.demo.models.User;
 import co.cue.edu.miniproject.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,8 +14,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping(value = "/add-user")
-    public void addUser(@RequestBody User user) {
-        userService.addUser(user);
+    public void addUser(@RequestBody UserDTO userDTO) {
+        userService.addUser(userDTO);
     }
 
     @DeleteMapping(value = "/delete-user/{user_id}")

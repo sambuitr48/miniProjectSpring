@@ -1,8 +1,7 @@
 package co.cue.edu.miniproject.demo.services.impl;
 
 import co.cue.edu.miniproject.demo.dtos.VehicleDTO;
-import co.cue.edu.miniproject.demo.mapping.VehicleMapper;
-import co.cue.edu.miniproject.demo.models.Vehicle;
+import co.cue.edu.miniproject.demo.domain.mapping.VehicleMapper;
 import co.cue.edu.miniproject.demo.repositories.VehicleRepository;
 import co.cue.edu.miniproject.demo.services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +10,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class VehicleRepositoryImpl implements VehicleService {
+public class VehicleServiceImpl implements VehicleService {
 
     @Autowired
     private VehicleRepository vehicleRepository;
 
 
     @Override
-    public void addVheicle(Vehicle vehicle) {
-        vehicleRepository.addVheicle(vehicle);
+    public void addVheicle(VehicleDTO vehicleDTO) {
+        vehicleRepository.addVheicle(vehicleDTO);
     }
 
     @Override
@@ -29,7 +28,7 @@ public class VehicleRepositoryImpl implements VehicleService {
 
     @Override
     public List<VehicleDTO> getVehicle() {
-        return vehicleRepository.getVehicle().stream().map(VehicleMapper::mapFrom).toList();
+        return vehicleRepository.getVehicle().stream().map(VehicleMapper::mapFromModel).toList();
     }
 
     @Override

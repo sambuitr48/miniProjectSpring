@@ -1,7 +1,7 @@
 package co.cue.edu.miniproject.demo.repositories.impl;
 
-import co.cue.edu.miniproject.demo.models.User;
-import co.cue.edu.miniproject.demo.models.Vehicle;
+import co.cue.edu.miniproject.demo.dtos.VehicleDTO;
+import co.cue.edu.miniproject.demo.domain.models.Vehicle;
 import co.cue.edu.miniproject.demo.repositories.VehicleRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
@@ -18,7 +18,7 @@ public class VehicleRepositoryImpl implements VehicleRepository {
     private EntityManager entityManager;
 
     @Override
-    public void addVheicle(Vehicle vehicle) {
+    public void addVheicle(VehicleDTO vehicle) {
         entityManager.merge(vehicle);
     }
 

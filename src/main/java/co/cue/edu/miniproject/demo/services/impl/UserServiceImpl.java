@@ -1,8 +1,7 @@
 package co.cue.edu.miniproject.demo.services.impl;
 
 import co.cue.edu.miniproject.demo.dtos.UserDTO;
-import co.cue.edu.miniproject.demo.mapping.UserMapper;
-import co.cue.edu.miniproject.demo.models.User;
+import co.cue.edu.miniproject.demo.domain.mapping.UserMapper;
 import co.cue.edu.miniproject.demo.repositories.UserRepository;
 import co.cue.edu.miniproject.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+
     @Override
-    public void addUser(User user) {
-        userRepository.addUser(user);
-    }
+    public void addUser(UserDTO userDTO) {
+        userRepository.addUser(userDTO);
+    } //Cambiar a DTO
 
     @Override
     public void removeUser(Long user_id) {
@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDTO> getUser() {
-        return userRepository.getUser().stream().map(UserMapper::mapFrom).toList();
+        return userRepository.getUser().stream().map(UserMapper::mapFromModel).toList();
     }
 
     @Override

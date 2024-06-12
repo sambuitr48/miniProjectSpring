@@ -1,6 +1,7 @@
 package co.cue.edu.miniproject.demo.repositories.impl;
 
-import co.cue.edu.miniproject.demo.models.User;
+import co.cue.edu.miniproject.demo.dtos.UserDTO;
+import co.cue.edu.miniproject.demo.domain.models.User;
 import co.cue.edu.miniproject.demo.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
@@ -16,7 +17,7 @@ public class UserRepositoryImpl implements UserRepository {
     @PersistenceContext
     private EntityManager entityManager;
     @Override
-    public void addUser(User user) {
+    public void addUser(UserDTO user) {
         entityManager.merge(user);
     }
 

@@ -1,4 +1,4 @@
-package co.cue.edu.miniproject.demo.models;
+package co.cue.edu.miniproject.demo.domain.models;
 import jakarta.persistence.*;
 import lombok.*;
 

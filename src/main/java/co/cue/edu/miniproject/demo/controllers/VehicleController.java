@@ -1,9 +1,6 @@
 package co.cue.edu.miniproject.demo.controllers;
 
-import co.cue.edu.miniproject.demo.dtos.UserDTO;
 import co.cue.edu.miniproject.demo.dtos.VehicleDTO;
-import co.cue.edu.miniproject.demo.models.User;
-import co.cue.edu.miniproject.demo.models.Vehicle;
 import co.cue.edu.miniproject.demo.services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +15,8 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @PostMapping(value = "/add-user")
-    public void addVehicle(@RequestBody Vehicle vehicle) {
-        vehicleService.addVheicle(vehicle);
+    public void addVehicle(@RequestBody VehicleDTO vehicleDTO) {
+        vehicleService.addVheicle(vehicleDTO);
     }
 
     @DeleteMapping(value = "/delete-user/{user_id}")
