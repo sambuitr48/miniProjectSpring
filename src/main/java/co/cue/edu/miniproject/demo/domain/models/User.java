@@ -1,7 +1,10 @@
 package co.cue.edu.miniproject.demo.domain.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -10,8 +13,9 @@ import lombok.*;
 @ToString
 @Data
 @Builder
-@Table(name = "users")
 @Entity
+@Table(name = "users")
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +24,8 @@ public class User {
     private String mail;
     private String password;
     private String mobile;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("users")
+    private List<Reservation> reservations;
 }
