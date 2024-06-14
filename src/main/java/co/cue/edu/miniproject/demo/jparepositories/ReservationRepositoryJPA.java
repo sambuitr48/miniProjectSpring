@@ -1,0 +1,7 @@
+package co.cue.edu.miniproject.demo.jparepositories;
+
+import co.cue.edu.miniproject.demo.domain.models.Reservation;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ReservationRepositoryJPA extends JpaRepository<Reservation,Long> {
+}
