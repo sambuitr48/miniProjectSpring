@@ -7,7 +7,7 @@ import lombok.Builder;
 @Builder
 public record VehicleDTO(
                          Long vehicle_id,
-                         String vehicleCategory,
+                         String category,
                          @NotNull
                          @NotBlank
                          String brand,

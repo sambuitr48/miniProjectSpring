@@ -1,5 +1,6 @@
 package co.cue.edu.miniproject.demo.domain.mapping;
 
+import co.cue.edu.miniproject.demo.domain.enums.VehicleCategory;
 import co.cue.edu.miniproject.demo.domain.models.Vehicle;
 import co.cue.edu.miniproject.demo.dtos.VehicleDTO;
 import lombok.Builder;
@@ -9,7 +10,7 @@ public class VehicleMapper {
     public static Vehicle mapFromDto(VehicleDTO vehicleDTO){ //MapFromDTO
         return Vehicle.builder()
                 .vehicle_id(vehicleDTO.vehicle_id())
-                .vehicleCategory(vehicleDTO.vehicleCategory())
+                .category(VehicleCategory.valueOf(vehicleDTO.category()))
                 .brand(vehicleDTO.brand())
                 .plate(vehicleDTO.plate())
                 .price(vehicleDTO.price())
@@ -20,7 +21,7 @@ public class VehicleMapper {
     public static VehicleDTO mapFromModel(Vehicle vehicle){ //MapFromModel
         return VehicleDTO.builder()
                 .vehicle_id(vehicle.getVehicle_id())
-                .vehicleCategory(vehicle.getVehicleCategory())
+                .category(vehicle.getCategory().name())
                 .brand(vehicle.getBrand())
                 .plate(vehicle.getPlate())
                 .price(vehicle.getPrice())
