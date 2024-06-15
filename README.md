@@ -3,6 +3,7 @@ Trabajo realizado por Samuel Buitrago Osorio y Luis Miguel Alvarez Osorio
 (Te queremos mucho profe <3)
 
 Entrega Final:
+
 Video:
 https://drive.google.com/file/d/1bC8ilyR60-pjvBbOCMMrM947sr0r-tci/view?usp=sharing
 
@@ -12,7 +13,12 @@ https://drive.google.com/file/d/1s31U--QRj2RvEjhXCQfLyclYQBabBCVa/view?usp=shari
 Diagrama de clases (Hacer Zoom):
 https://drive.google.com/file/d/1D8XjtXoZUX1_cOEsvtn35pIrwNmBxaZ3/view?usp=sharing
 
+Código SQL para la base de datos:
+https://drive.google.com/file/d/1SQRdnVBF9qz_SDnx5GGA2PEdxszjTTSV/view?usp=sharing
+
 Muchas gracias por el semestre, esperamos que te recuperes pronto y disfrutes  
 este semestre de descanso. <3
+
+
 
 
