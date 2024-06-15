@@ -3,7 +3,6 @@ package co.cue.edu.miniproject.demo1;
 import co.cue.edu.miniproject.demo.domain.models.User;
 import co.cue.edu.miniproject.demo.dtos.UserDTO;
 import co.cue.edu.miniproject.demo.jparepositories.UserRepositoryJPA;
-import co.cue.edu.miniproject.demo.domain.mapping.UserMapper;
 import co.cue.edu.miniproject.demo.services.impl.UserServiceImpl;
 import org.apache.coyote.BadRequestException;
 import org.junit.jupiter.api.BeforeEach;
