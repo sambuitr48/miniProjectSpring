@@ -25,7 +25,7 @@ public class User {
     private String password;
     private String mobile;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("users")
     private List<Reservation> reservations;
 }

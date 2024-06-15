@@ -1,7 +1,10 @@
 package co.cue.edu.miniproject.demo.domain.models;
 import co.cue.edu.miniproject.demo.domain.enums.VehicleCategory;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,4 +26,9 @@ public class Vehicle {
 
     @Enumerated(EnumType.STRING)
     private VehicleCategory category;
+
+    @OneToMany(mappedBy = "vehicles", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("vehicles")
+    private List<Reservation> reservations;
+
 }
