@@ -1,9 +1,11 @@
 package co.cue.edu.miniproject.demo.services.impl;
 
-import co.cue.edu.miniproject.demo.dtos.VehicleDTO;
 import co.cue.edu.miniproject.demo.domain.mapping.VehicleMapper;
-import co.cue.edu.miniproject.demo.repositories.VehicleRepository;
+import co.cue.edu.miniproject.demo.domain.models.Vehicle;
+import co.cue.edu.miniproject.demo.dtos.VehicleDTO;
+import co.cue.edu.miniproject.demo.jparepositories.VehicleRepositoryJPA;
 import co.cue.edu.miniproject.demo.services.VehicleService;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,26 +15,25 @@ import java.util.List;
 public class VehicleServiceImpl implements VehicleService {
 
     @Autowired
-    private VehicleRepository vehicleRepository;
-
+    private VehicleRepositoryJPA vehicleRepositoryJPA;
 
     @Override
     public void addVheicle(VehicleDTO vehicleDTO) {
-        vehicleRepository.addVheicle(vehicleDTO);
+        vehicleRepositoryJPA.save(VehicleMapper.mapFromDto(vehicleDTO));
     }
 
     @Override
     public void remoceVehicle(Long vehicle_id) {
-        vehicleRepository.remoceVehicle(vehicle_id);
+        vehicleRepositoryJPA.deleteById(vehicle_id);
     }
 
     @Override
     public List<VehicleDTO> getVehicle() {
-        return vehicleRepository.getVehicle().stream().map(VehicleMapper::mapFromModel).toList();
+        return vehicleRepositoryJPA.findAll().stream().map(VehicleMapper::mapFromModel).toList();
     }
 
     @Override
-    public void findById(Long vehicle_id) {
-        vehicleRepository.findById(vehicle_id);
+    public Vehicle findById(Long vehicle_id) throws BadRequestException {
+    return vehicleRepositoryJPA.findById(vehicle_id).orElseThrow(()->new BadRequestException());
     }
 }

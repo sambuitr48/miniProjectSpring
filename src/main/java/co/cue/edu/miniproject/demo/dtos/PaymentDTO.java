@@ -11,11 +11,11 @@ import lombok.Builder;
 public record PaymentDTO(
         Long idPay,
         Reservation idReservation,
-        @NotNull
-        @Positive
+        @NotNull(message = "User ID cannot be null")
+        @Positive(message = "User ID must be positive")
         User idUser,
-        @NotNull
-        @Positive
+        @NotNull(message = "Vehicle ID cannot be null")
+        @Positive(message = "Vehicle ID must be positive")
         Vehicle idVehicle
 ) {
 }

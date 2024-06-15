@@ -2,6 +2,7 @@ package co.cue.edu.miniproject.demo.controllers;
 
 import co.cue.edu.miniproject.demo.dtos.UserDTO;
 import co.cue.edu.miniproject.demo.services.UserService;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/get-user-byid/{user_id}")
-    public void userById(@PathVariable Long user_id){
+    public void userById(@PathVariable Long user_id) throws BadRequestException {
         userService.findById(user_id);
     }
 }
